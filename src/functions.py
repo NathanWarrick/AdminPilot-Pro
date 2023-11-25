@@ -1,4 +1,4 @@
-import csv, os, mss, cv2, pynput, time, pyautogui, win32api, win32con
+import csv, os, mss, cv2, pynput, time, win32api, win32con
 import numpy as np
 
 import src.plugins.seqta as sqt
@@ -14,7 +14,8 @@ def click_left(x, y):
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
     else:
-        pyautogui.click()
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0)
 
 
 def click_right(x, y):
