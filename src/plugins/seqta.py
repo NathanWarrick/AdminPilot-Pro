@@ -98,17 +98,21 @@ def create_dm(name: str, dm_type: int):
     #     ]:
     #         load = True
     fnc.clickon(r"src\assets\seqta\sip\actions.png", wait=0.5)
-    if dm_type == 1:
-        fnc.clickon(r"src\assets\seqta\sip\dmstudent.png", confidence=0.9)
-    elif dm_type == 2:
-        fnc.clickon(r"src\assets\seqta\sip\dmguardian.png", confidence=0.9)
-    elif dm_type == 3:
-        try:
-            fnc.clickon(r"src\assets\seqta\sip\dmboth.png", confidence=0.9)
-        except:
-            return "NotFound"
-    elif dm_type == 4:
-        fnc.clickon(r"src\assets\seqta\sip\dmteachers.png", confidence=0.9)
+    try:
+        if dm_type == 1:
+            fnc.clickon(r"src\assets\seqta\sip\dmstudent.png", confidence=0.9)
+        elif dm_type == 2:
+            fnc.clickon(r"src\assets\seqta\sip\dmguardian.png", confidence=0.9)
+        elif dm_type == 3:
+            try:
+                fnc.clickon(r"src\assets\seqta\sip\dmboth.png", confidence=0.9)
+            except:
+                return "NotFound"
+        elif dm_type == 4:
+            fnc.clickon(r"src\assets\seqta\sip\dmteachers.png", confidence=0.9)
+    except:
+        return "NotFound"
+
     time.sleep(1)
 
 

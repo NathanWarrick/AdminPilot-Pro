@@ -7,7 +7,7 @@ import src.plugins.seqta as sqt
 curr_working_dir = os.getcwd()
 
 
-def dm_timetable(subject: str, body: str, send: bool):
+def dm_timetable(subject: str, body: str, dmtype: int, send: bool):
     """
     Split edval timetable using split_document()\n
     Iterate over returned names to send SEQTA DMs
@@ -29,7 +29,7 @@ def dm_timetable(subject: str, body: str, send: bool):
         print("\n-------------------------------------------------------")
         print(str(index + 1) + "/" + str(len(names)))
         if (
-            sqt.create_dm(name=names[index], dm_type=1) == "NotFound"
+            sqt.create_dm(name=names[index], dm_type=dmtype) == "NotFound"
         ):  # If the function can't find a studnet return their name, add it to the list of failures and move on
             failures.append(names[index])
             index = index + 1

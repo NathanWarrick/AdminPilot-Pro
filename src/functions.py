@@ -51,8 +51,8 @@ def clickon(image: str, confidence=0.9, clicktype="left", wait=0.1):
     found = False
     i = 0
     while found == False:
-        if i == 30:
-            raise RuntimeError("Unable to find image in the 30 second window")
+        if i == 10:
+            raise RuntimeError("Unable to find image in the 10 second window")
         coordds = imagesearch(image, confidence=confidence)
         i += 1
         time.sleep(1)
