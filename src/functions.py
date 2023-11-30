@@ -51,11 +51,15 @@ def clickon(image: str, confidence=0.9, clicktype="left", wait=0.1):
     found = False
     i = 0
     while found == False:
-        if i == 10:
-            raise RuntimeError("Unable to find image in the 10 second window")
+        if i == 2 and found == False:
+            win32api.SetCursorPos((0, 1025))
         coordds = imagesearch(image, confidence=confidence)
         i += 1
         time.sleep(1)
+
+        if i == 10:
+            raise RuntimeError("Unable to find image in the 10 second window")
+
         if coordds != [-1, -1]:
             found = True
             if clicktype == "left":
